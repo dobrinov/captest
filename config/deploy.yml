@@ -1,14 +1,14 @@
-service: wunderkind
+service: captest
 
-image: dobrinov/wunderkind
+image: dobrinov/captest
 
 servers:
   web:
-    - wunderkind.bg
+    - testove-kapitan-40bt.com
 
 proxy:
   ssl: true
-  host: wunderkind.bg
+  host: testove-kapitan-40bt.com
 
 registry:
   username: dobrinov
@@ -17,8 +17,8 @@ registry:
 
 env:
   clear:
-    DB_HOST: wunderkind-db
-    POSTGRES_DB: wunderkind_production
+    DB_HOST: captest-db
+    POSTGRES_DB: captest_production
     POSTGRES_USER: postgres
     DB_PORT: 5432
 
@@ -33,7 +33,7 @@ aliases:
   dbc: app exec --interactive --reuse "bin/rails dbconsole"
 
 volumes:
-  - "wunderkind_storage:/rails/storage"
+  - "captest_storage:/rails/storage"
 
 asset_path: /rails/public/assets
 
@@ -43,12 +43,12 @@ builder:
 accessories:
   db:
     image: postgres:17
-    host: wunderkind.bg
+    host: testove-kapitan-40bt.com
     port: 127.0.0.1:5432:5432
     env:
       clear:
         POSTGRES_USER: postgres
-        POSTGRES_DB: wunderkind_production
+        POSTGRES_DB: captest_production
       secret:
         - POSTGRES_PASSWORD
     directories:
