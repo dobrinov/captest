@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: wunderkind_development
+  database: captain_development
 
 test:
   <<: *default
-  database: wunderkind_test
+  database: captain_test
 
 production:
   primary:
