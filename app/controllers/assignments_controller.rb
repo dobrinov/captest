@@ -6,7 +6,7 @@ class AssignmentsController < AuthenticatedController
   end
 
   def create
-    assignment = AssignmentCreator.execute(user: current_user, question_count: 10)
+    assignment = AssignmentCreator.execute(user: current_user, question_count: 60)
     redirect_to assignment_question_path(assignment, assignment.next_question)
   end
 
