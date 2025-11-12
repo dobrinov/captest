@@ -4,3 +4,7 @@ end
 
 create_user name: "Деян", email: "admin@example.com", admin: true
 create_user name: "Виктор", email: "student@example.com"
+
+1.upto(100) do |i|
+  Question.create! text: "#{i} + #{i}", answer: "#{i * 2}"
+end
